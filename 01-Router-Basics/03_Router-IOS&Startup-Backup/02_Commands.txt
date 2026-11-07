@@ -7,20 +7,19 @@ Router: Cisco 2811
 
 1. Configure Router Interface
 
-Router>enable
-Rputer#configure terminal
-Router(config)#interface fastethernet 0/0
-Router(config)#ip address 192.168.1.1 255.255.255.240
-Router(config)#no shutdown
-Router(config)#exit
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 192.168.1.1 255.255.255.240
+no shutdown
 
 2. Verify IOS Image in Flash
 
-Router#show flash
+show flash
 
 3. Backup IOS Image to TFTP Server
 
-Router#copy flash tftp
+copy flash tftp
 
 Source Filename:
 2800nm-advipservicesk9-mz.151-4.M4.bin
@@ -30,7 +29,7 @@ TFTP Server Address:
 
 4. Backup Startup Configuration to TFTP Server
 
-Router#copy startup-config tftp
+copy startup-config tftp
 
 TFTP Server Address:
 192.168.1.10
