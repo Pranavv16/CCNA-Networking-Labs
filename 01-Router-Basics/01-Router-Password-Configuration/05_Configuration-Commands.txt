@@ -1,0 +1,36 @@
+
+! Router Password Configuration
+
+enable
+configure terminal
+
+! Configure Router Hostname
+hostname Pune-Router
+
+! Configure Local Username
+username pranav secret <LOCAL_PASSWORD>
+
+! Configure Enable Secret
+enable secret <ENABLE_PASSWORD>
+
+! Encrypt Plain Text Passwords
+service password-encryption
+
+! Configure Console Password
+line console 0
+login local
+exit
+
+! Configure AUX Password
+line aux 0
+login local
+exit
+
+! Configure VTY Password Authentication
+line vty 0 4
+login local
+exit
+
+! Save Configuration
+end
+write memory
