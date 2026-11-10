@@ -1,0 +1,33 @@
+
+! Configure ROMMON environment variables
+
+IP_ADDRESS=192.168.1.1
+IP_SUBNET_MASK=255.255.255.240
+DEFAULT_GATEWAY=192.168.1.10
+TFTP_SERVER=192.168.1.10
+TFTP_FILE=2800nm-advipservicesk9-mz.151-4.M4.bin
+
+! Recover IOS image from TFTP Server
+tftpdnld
+
+! Reload the router
+reset
+
+! Configure router interface
+
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 192.168.1.1 255.255.255.240
+no shutdown
+exit
+
+! Restore startup configuration from TFTP
+copy tftp startup-config
+
+! Apply startup configuration to running configuration
+copy startup-config running-config
+
+! Verify configuration
+show startup-config
+show running-config
