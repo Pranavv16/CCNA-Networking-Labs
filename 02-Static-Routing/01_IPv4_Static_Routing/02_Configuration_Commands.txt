@@ -1,0 +1,50 @@
+!R1 Configuration
+
+hostname R1
+
+interface fastethernet0/0
+ip address 170.170.0.1 255.255.255.252
+no shutdown
+
+interface fastethernet0/1
+ip address 192.168.1.1 255.255.255.192
+no shutdown
+
+ip route 10.10.10.0 255.255.255.192 170.170.0.2
+ip route 180.180.0.0 255.255.255.252 170.170.0.2
+ip route 172.16.0.0 255.255.255.192 170.170.0.2
+
+! R2 Configuration 
+
+hostname R2
+
+interface fastethernet0/0
+ip address 170.170.0.2 255.255.255.252
+no shutdown
+
+interface fastethernet0/1
+ip address 180.180.0.1 255.255.255.252
+no shutdown
+
+interface fastethernet1/0
+ip address 172.16.0.1 255.255.255.192
+no shutdown
+
+ip route 192.168.1.0 255.255.255.192 170.170.0.1
+ip route 10.10.10.0 255.255.255.192 180.180.0.2
+
+! R3 Configuration
+
+hostname R3
+
+interface fastethernet0/0
+ip address 180.180.0.2 255.255.255.252
+no shutdown
+
+interface fastethernet0/1
+ip address 10.10.10.1 255.255.255.192
+no shutdown
+
+ip route 172.16.0.0 255.255.255.192 180.180.0.1
+ip route 170.170.0.0 255.255.255.192 180.180.0.1
+ip route 192.168.1.0 255.255.255.192 180.180.0.1
