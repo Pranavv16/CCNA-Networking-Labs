@@ -1,0 +1,29 @@
+! R1 Routing configuration 
+
+enable
+configure terminal
+
+ipv6 route FD01::/64 2001::2
+ipv6 route FD02::/64 2001::2
+
+do show ipv6 route
+
+! R2 routing Configuration 
+
+enable
+configure terminal
+
+ipv6 route FD00::/64 2001::1
+ipv6 route FD02::/64 2002::2
+
+do show ipv6 route
+
+! R3 Routing Configuration 
+
+enable
+configure terminal
+
+ipv6 route FD01::/64 2002::1
+ipv6 route FD00::/64 2002::1
+
+do show ipv6 route
