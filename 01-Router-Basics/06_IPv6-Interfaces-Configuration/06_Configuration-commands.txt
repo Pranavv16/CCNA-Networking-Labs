@@ -1,0 +1,51 @@
+! R1 Configuration
+
+enable
+configure terminal
+hostname R1
+
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2001::1/64
+no shutdown
+
+interface fastethernet 0/1
+ipv6 address fd00::1/64
+no shutdown
+
+! R2 Configuration
+
+enable
+configure terminal
+hostname R2
+
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2001::2/64
+no shutdown
+
+interface fastethernet 0/1
+ipv6 address 2002::1/64
+no shutdown
+
+interface fastethernet 1/0
+ipv6 address fd01::1/64
+no shutdown
+
+! R3 Configuration 
+
+enable
+configure terminal
+hostname R3
+
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2002::2/64
+no shutdown
+
+interface fastethernet 0/1
+ipv6 address fd02::1/64
+no shutdown
