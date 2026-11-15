@@ -1,0 +1,56 @@
+! R1 Configuration
+
+enable
+configure terminal
+
+router rip
+version 2
+network 192.168.1.0
+network 192.168.1.128
+network 192.168.1.144
+exit
+
+! R2 Configuration
+
+enable
+configure terminal
+
+router rip
+version 2
+network 192.168.1.128
+network 192.168.1.132
+exit
+
+! R3 Configuration
+
+enable
+configure terminal
+
+router rip
+version 2
+network 192.168.1.132
+network 192.168.1.136
+exit
+
+! R4 Configuration
+
+enable
+configure terminal
+
+router rip
+version 2
+network 192.168.1.64
+network 192.168.1.136
+network 192.168.1.140
+exit
+
+! R5 Configuration  
+
+enable
+configure terminal
+
+router rip
+version 2
+network 192.168.1.140
+network 192.168.1.144
+exit
