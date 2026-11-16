@@ -1,6 +1,6 @@
 # RIP Dynamic Routing Using RIPv2
 
-## Project Overview
+## Lab Overview
 This project demonstrates the configuration and implementation of RIP (Routing Information Protocol) using RIPv2 in Cisco Packet Tracer.
 
 The network consists of five routers connected through point-to-point links and two LAN networks. RIPv2 is configured on all routers to enable dynamic route exchange and communication between different networks.
@@ -47,5 +47,5 @@ RIPv2 was configured on all five routers using the appropriate network statement
 ## Tools Used
 - Cisco Packet Tracer
 
-## Project Outcome
+## Lab Outcome
 Successfully implemented RIPv2 dynamic routing across a five-router topology and verified end-to-end connectivity between the two LAN networks.
