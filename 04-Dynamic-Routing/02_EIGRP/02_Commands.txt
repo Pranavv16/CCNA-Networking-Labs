@@ -1,0 +1,95 @@
+
+==================================================
+       OSPF DYNAMIC ROUTING CONFIGURATION
+             CISCO PACKET TRACER
+==================================================
+
+--------------------
+ROUTER 1 (R1)
+--------------------
+
+! DHCP Configuration
+
+ip dhcp pool R1
+ network 10.10.10.0 255.255.255.192
+ default-router 10.10.10.1
+exit
+
+! OSPF Configuration
+
+router ospf 1
+ network 10.10.10.0 0.0.0.63 area 1000
+ network 10.10.10.192 0.0.0.3 area 1000
+ network 10.10.10.208 0.0.0.3 area 1000
+exit
+
+! OSPF Cost Configuration
+
+interface fastethernet 0/0
+ ip ospf cost 10
+exit
+
+
+--------------------
+ROUTER 2 (R2)
+--------------------
+
+! OSPF Configuration
+
+router ospf 2
+ network 10.10.10.192 0.0.0.3 area 1000
+ network 10.10.10.196 0.0.0.3 area 1000
+exit
+
+
+--------------------
+ROUTER 3 (R3)
+--------------------
+
+! OSPF Configuration
+
+router ospf 3
+ network 10.10.10.196 0.0.0.3 area 1000
+ network 10.10.10.200 0.0.0.3 area 1000
+exit
+
+
+--------------------
+ROUTER 4 (R4)
+--------------------
+
+! OSPF Configuration
+
+router ospf 4
+ network 10.10.10.64 0.0.0.63 area 1000
+ network 10.10.10.200 0.0.0.3 area 1000
+ network 10.10.10.204 0.0.0.3 area 1000
+exit
+
+! OSPF Cost Configuration
+
+interface fastethernet 0/0
+ ip ospf cost 10
+exit
+
+
+--------------------
+ROUTER 5 (R5)
+--------------------
+
+! OSPF Configuration
+
+router ospf 5
+ network 10.10.10.204 0.0.0.3 area 1000
+ network 10.10.10.208 0.0.0.3 area 1000
+exit
+
+
+--------------------
+VERIFICATION COMMANDS
+--------------------
+
+show ip interface brief
+show ip ospf neighbor
+show ip route
+show ip ospf database
