@@ -1,0 +1,73 @@
+==================================================
+EIGRP DYNAMIC ROUTING CONFIGURATION
+AS NUMBER: 100
+==================================================
+
+
+================ R1 CONFIGURATION ================
+
+enable
+configure terminal
+
+router eigrp 100
+network 172.16.1.0
+network 172.16.1.128
+network 172.16.1.144
+exit
+
+
+================ R2 CONFIGURATION ================
+
+enable
+configure terminal
+
+router eigrp 100
+network 172.16.1.128
+network 172.16.1.132
+exit
+
+
+================ R3 CONFIGURATION ================
+
+enable
+configure terminal
+
+router eigrp 100
+network 172.16.1.132
+network 172.16.1.136
+exit
+
+
+================ R4 CONFIGURATION ================
+
+enable
+configure terminal
+
+router eigrp 100
+network 172.16.1.136
+network 172.16.1.140
+exit
+
+
+================ R5 CONFIGURATION ================
+
+enable
+configure terminal
+
+router eigrp 100
+network 172.16.1.140
+network 172.16.1.144
+exit
+
+
+================ VERIFICATION COMMANDS ================
+
+show ip route
+show ip eigrp neighbors
+show ip eigrp topology
+show ip protocols
+
+
+================ CONNECTIVITY TESTING ================
+
+ping <Ip address>
