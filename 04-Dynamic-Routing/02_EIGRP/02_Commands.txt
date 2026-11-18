@@ -33,6 +33,7 @@ enable
 configure terminal
 
 router eigrp 100
+network 172.16.1.64
 network 172.16.1.132
 network 172.16.1.136
 exit
@@ -70,4 +71,4 @@ show ip protocols
 
 ================ CONNECTIVITY TESTING ================
 
-ping <Ip address>
+ping <IP address of remote host>
