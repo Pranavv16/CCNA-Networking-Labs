@@ -1,0 +1,167 @@
+============================================================
+INTER-AREA OSPF ROUTING LAB
+Cisco Packet Tracer
+============================================================
+
+
+============================================================
+ROUTER 1 (R1) CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+interface FastEthernet0/0
+ip address 170.170.0.1 255.255.255.252
+no shutdown
+exit
+
+interface FastEthernet0/1
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+
+router ospf 1
+network 192.168.1.0 0.0.0.255 area 100
+network 170.170.0.0 0.0.0.3 area 100
+exit
+
+end
+
+
+============================================================
+ROUTER 2 (R2) CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+interface FastEthernet0/0
+ip address 170.170.0.2 255.255.255.252
+no shutdown
+exit
+
+interface FastEthernet0/1
+ip address 180.180.180.1 255.255.255.252
+no shutdown
+exit
+
+interface FastEthernet1/0
+ip address 172.20.0.1 255.255.255.0
+no shutdown
+exit
+
+router ospf 1
+network 172.20.0.0 0.0.0.255 area 100
+network 170.170.0.0 0.0.0.3 area 100
+network 180.180.180.0 0.0.0.3 area 0
+exit
+
+end
+
+
+============================================================
+ABR ROUTER 3 (ABR-R3) CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+interface FastEthernet0/0
+ip address 180.180.180.2 255.255.255.252
+no shutdown
+exit
+
+interface FastEthernet0/1
+ip address 200.50.50.1 255.255.255.252
+no shutdown
+exit
+
+router ospf 2
+network 200.50.50.0 0.0.0.3 area 0
+network 180.180.180.0 0.0.0.3 area 0
+exit
+
+end
+
+
+============================================================
+ROUTER 4 (R4) CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+interface FastEthernet0/0
+ip address 200.50.50.2 255.255.255.252
+no shutdown
+exit
+
+interface FastEthernet0/1
+ip address 150.160.100.1 255.255.255.252
+no shutdown
+exit
+
+interface FastEthernet1/0
+ip address 10.10.10.1 255.255.255.192
+no shutdown
+exit
+
+router ospf 1
+network 10.10.10.0 0.0.0.63 area 200
+network 150.160.100.0 0.0.0.3 area 200
+network 200.50.50.0 0.0.0.3 area 0
+exit
+
+end
+
+
+============================================================
+ROUTER 5 (R5) CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+interface FastEthernet0/0
+ip address 150.160.100.2 255.255.255.252
+no shutdown
+exit
+
+interface FastEthernet0/1
+ip address 172.16.0.1 255.255.255.240
+no shutdown
+exit
+
+router ospf 1
+network 172.16.0.0 0.0.0.15 area 200
+network 150.160.100.0 0.0.0.3 area 200
+exit
+
+end
+
+
+============================================================
+OSPF VERIFICATION COMMANDS
+============================================================
+
+show ip interface brief
+show ip ospf neighbor
+show ip ospf interface brief
+show ip ospf database
+show ip route
+show ip route ospf
+show ip protocols
+
+
+============================================================
+CONNECTIVITY TESTING COMMANDS
+============================================================
+
+ping <destination-ip>
+traceroute <destination-ip>
+
+
+============================================================
+END OF CONFIGURATION
+============================================================
