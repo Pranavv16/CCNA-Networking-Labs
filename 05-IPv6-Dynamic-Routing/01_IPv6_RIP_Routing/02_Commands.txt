@@ -1,0 +1,223 @@
+
+==================================================
+IPv6 RIP ROUTING LAB - CONFIGURATION COMMANDS
+==================================================
+
+------------------------------
+ROUTER 1 (R1)
+------------------------------
+
+enable
+configure terminal
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address FD00::1/64
+ipv6 rip R1 enable
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2001::1/64
+ipv6 rip R1 enable
+no shutdown
+exit
+
+ipv6 router rip R1
+int f0/0
+ipv6 rip R1 enable
+int f0/1
+ipv6 rip R1 enable
+exit
+
+------------------------------
+ROUTER 2 (R2)
+------------------------------
+
+enable
+configure terminal
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2001::2/64
+ipv6 rip R2 enable
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2002::1/64
+ipv6 rip R2 enable
+no shutdown
+exit
+
+interface fastethernet 1/0
+ipv6 address 2006::2/64
+ipv6 rip R2 enable
+no shutdown
+exit
+
+ipv6 router rip R2
+int f0/0
+ipv6 rip R2 enable
+int f0/1
+ipv6 rip R2 enable
+int f1/0
+ipv6 rip R2 enable
+exit
+
+------------------------------
+ROUTER 3 (R3)
+------------------------------
+
+enable
+configure terminal
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2002::2/64
+ipv6 rip R3 enable
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2003::1/64
+ipv6 rip R3 enable
+no shutdown
+exit
+
+ipv6 router rip R3
+int f0/0
+ipv6 rip R3 enable
+int f0/1
+ipv6 rip R3 enable
+exit
+
+------------------------------
+ROUTER 4 (R4)
+------------------------------
+
+enable
+configure terminal
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2003::2/64
+ipv6 rip R4 enable
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2004::1/64
+ipv6 rip R4 enable
+no shutdown
+exit
+
+interface fastethernet 1/0
+ipv6 address 2007::2/64
+ipv6 rip R4 enable
+no shutdown
+exit
+
+ipv6 router rip R4
+int f0/0
+ipv6 rip R4 enable
+int f0/1
+ipv6 rip R4 enable
+int f1/0
+ipv6 rip R4 enable
+exit
+
+------------------------------
+ROUTER 5 (R5)
+------------------------------
+
+enable
+configure terminal
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2005::2/64
+ipv6 rip R5 enable
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2004::2/64
+ipv6 rip R5 enable
+no shutdown
+exit
+
+ipv6 router rip R5
+int f0/0
+ipv6 rip R5 enable
+int f0/1
+ipv6 rip R5 enable
+exit
+
+------------------------------
+ROUTER 6 (R6)
+------------------------------
+
+enable
+configure terminal
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2005::1/64
+ipv6 rip R6 enable
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2006::1/64
+ipv6 rip R6 enable
+no shutdown
+exit
+
+ipv6 router rip R6
+int f0/0
+ipv6 rip R6 enable
+int f0/1
+ipv6 rip R6 enable
+exit
+
+------------------------------
+ROUTER 7 (R7)
+------------------------------
+
+enable
+configure terminal
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address FD01::1/64
+ipv6 rip R7 enable
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2007::1/64
+ipv6 rip R7 enable
+no shutdown
+exit
+
+ipv6 router rip R7
+int f0/0
+ipv6 rip R7 enable
+int f0/1
+ipv6 rip R7 enable
+exit
+
+==================================================
+VERIFICATION COMMANDS
+==================================================
+
+show ipv6 interface brief
+show ipv6 route
+show ipv6 protocols
+ping <destination ip add>
+tracert <destination ip add>
+
+==================================================
+END OF CONFIGURATION
+==================================================
