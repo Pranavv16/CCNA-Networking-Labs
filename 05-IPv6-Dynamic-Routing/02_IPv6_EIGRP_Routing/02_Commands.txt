@@ -1,0 +1,271 @@
+
+============================================================
+             IPv6 EIGRP DYNAMIC ROUTING LAB
+============================================================
+
+Routing Protocol : IPv6 EIGRP
+Autonomous System: 500
+Total Routers    : 7
+Topology         : 7 Routers, 2 LAN Networks
+
+============================================================
+                    R1 CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address FD00::1/64
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2001::1/64
+no shutdown
+exit
+
+ipv6 router eigrp 500
+eigrp router-id 1.1.1.1
+no shutdown
+
+interface fastethernet 0/0
+ipv6 eigrp 500
+interface fastethernet 0/1
+ipv6 eigrp 500
+
+end
+
+
+============================================================
+                    R2 CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2001::2/64
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2002::1/64
+no shutdown
+exit
+
+interface fastethernet 1/0
+ipv6 address 2006::2/64
+no shutdown
+exit
+
+ipv6 router eigrp 500 
+eigrp router-id 2.2.2.2
+no shutdown
+
+interface fastethernet 0/0
+ipv6 eigrp 500
+interface fastethernet 0/1
+ipv6 eigrp 500
+interface fastethernet 1/0
+ipv6 eigrp 500
+
+end
+
+
+============================================================
+                    R3 CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2002::2/64
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2003::1/64
+no shutdown
+exit
+
+ipv6 router eigrp 500
+eigrp router-id 3.3.3.3
+no shutdown
+
+interface fastethernet 0/0
+ipv6 eigrp 500
+interface fastethernet 0/1
+ipv6 eigrp 500
+
+end
+
+
+============================================================
+                    R4 CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2003::2/64
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2004::1/64
+no shutdown
+exit
+
+interface fastethernet 1/0
+ipv6 address 2007::2/64
+no shutdown
+exit
+
+ipv6 router eigrp 500
+eigrp router-id 4.4.4.4
+no shutdown
+
+interface fastethernet 0/0
+ipv6 eigrp 500
+interface fastethernet 0/1
+ipv6 eigrp 500
+interface fastethernet 1/0
+ipv6 eigrp 500
+
+end
+
+
+============================================================
+                    R5 CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2004::2/64
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2005::1/64
+no shutdown
+exit
+
+ipv6 router eigrp 500
+eigrp router-id 5.5.5.5
+no shutdown
+
+interface fastethernet 0/0
+ipv6 eigrp 500
+interface fastethernet 0/1
+ipv6 eigrp 500
+
+end
+
+
+============================================================
+                    R6 CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address 2005::2/64
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2006::1/64
+no shutdown
+exit
+
+ipv6 router eigrp 500
+eigrp router-id 6.6.6.6
+no shutdown
+
+interface fastethernet 0/0
+ipv6 eigrp 500
+interface fastethernet 0/1
+ipv6 eigrp 500
+
+end
+
+
+============================================================
+                    R7 CONFIGURATION
+============================================================
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface fastethernet 0/0
+ipv6 address FD01::1/64
+no shutdown
+exit
+
+interface fastethernet 0/1
+ipv6 address 2007::1/64
+no shutdown
+exit
+
+ipv6 router eigrp 500
+eigrp router-id 7.7.7.7
+no shutdown
+
+interface fastethernet 0/0
+ipv6 eigrp 500
+interface fastethernet 0/1
+ipv6 eigrp 500
+end
+
+
+============================================================
+                VERIFICATION COMMANDS
+============================================================
+
+show ipv6 interface brief
+
+show ipv6 eigrp neighbors
+
+show ipv6 eigrp topology
+
+show ipv6 route
+
+show running-config
+
+
+============================================================
+                CONNECTIVITY VERIFICATION
+============================================================
+
+Ping Tests:
+
+ping < Destination_ip >
+
+Traceroute Test:
+
+tracert < Destination_ip >
+
+
+============================================================
+                 END OF CONFIGURATION
+============================================================
