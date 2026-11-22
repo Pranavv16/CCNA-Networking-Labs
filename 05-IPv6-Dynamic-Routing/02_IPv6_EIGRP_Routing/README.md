@@ -62,7 +62,7 @@ The following commands were used as part of the configuration:
 ipv6 unicast-routing
 
 ipv6 router eigrp 500
- eigrp router-id 1.1.1.1
+ eigrp router-id <'router_id'>
  no shutdown
 
 interface fastethernet 0/0
@@ -106,5 +106,8 @@ Successfully configured IPv6 EIGRP across a 7-router topology and verified dynam
 
 ## Project Files
 - `ipv6-eigrp-lab.pkt` – Packet Tracer project file
-- `Configuration-Commands.txt` – Router configuration commands
+- `Commands.txt` – Router configuration commands
 - `Screenshots/` – Configuration and verification evidence
+- `Simulation-Video` - Simulation video evidence of connectivity verification
+
+  
