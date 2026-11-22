@@ -12,9 +12,6 @@ The lab consists of 7 routers connected through multiple network segments, with 
 - IPv6 addressing
 - EIGRP Autonomous System: 500
 
-## IPv6 Addressing
-The following IPv6 prefixes are used in the topology:
-
 ## IPv6 Addressing Scheme
 
 The topology uses separate IPv6 /64 prefixes for each router-to-router connection and LAN segment.
