@@ -1,0 +1,223 @@
+
+============================================================
+IPv6 OSPFv3 DYNAMIC ROUTING - CONFIGURATION COMMANDS
+============================================================
+
+-------------------------
+ROUTER R1
+-------------------------
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface loopback 1
+ip address 1.1.1.1 255.255.255.255
+exit
+
+ipv6 router ospf 1
+interface fastethernet 0/0
+ipv6 ospf 1 area 10
+interface fastethernet 0/1
+ipv6 ospf 1 area 10
+
+end
+
+-------------------------
+ROUTER R2
+-------------------------
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface loopback 2
+ip address 2.2.2.2 255.255.255.255
+exit
+
+ipv6 router ospf 2
+interface fastethernet 0/0
+ipv6 ospf 2 area 10
+interface fastethernet 0/1
+ipv6 ospf 2 area 10
+interface fastethernet 1/0
+ipv6 ospf 2 area 10
+
+end
+
+
+-------------------------
+ROUTER R3
+-------------------------
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface loopback 3
+ip address 3.3.3.3 255.255.255.255
+exit
+
+ipv6 router ospf 3
+interface fastethernet 0/0
+ipv6 ospf 3 area 10
+interface fastethernet 0/1
+ipv6 ospf 3 area 10
+
+end
+
+
+-------------------------
+ROUTER R4
+-------------------------
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface loopback 4
+ip address 4.4.4.4 255.255.255.255
+exit
+
+ipv6 router ospf 4
+interface fastethernet 0/0
+ipv6 ospf 4 area 10
+interface fastethernet 0/1
+ipv6 ospf 4 area 10
+
+end
+
+
+-------------------------
+ROUTER R5
+-------------------------
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface loopback 5
+ip address 5.5.5.5 255.255.255.255
+exit
+
+ipv6 router ospf 5
+interface fastethernet 0/0
+ipv6 ospf 5 area 10
+interface fastethernet 0/1
+ipv6 ospf 5 area 10
+
+end
+
+
+-------------------------
+ROUTER R6
+-------------------------
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface loopback 6
+ip address 6.6.6.6 255.255.255.255
+exit
+
+ipv6 router ospf 6
+interface fastethernet 0/0
+ipv6 ospf 6 area 10
+interface fastethernet 0/1
+ipv6 ospf 6 area 10
+interface fastethernet 1/0
+ipv6 ospf 6 area 10
+
+end
+
+
+-------------------------
+ROUTER R7
+-------------------------
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface loopback 7
+ip address 7.7.7.7 255.255.255.255
+exit
+
+ipv6 router ospf 7
+interface fastethernet 0/0
+ipv6 ospf 7 area 10
+interface fastethernet 0/1
+ipv6 ospf 7 area 10
+
+end
+
+
+-------------------------
+ROUTER R8
+-------------------------
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface loopback 8
+ip address 8.8.8.8 255.255.255.255
+exit
+
+ipv6 router ospf 8
+interface fastethernet 0/0
+ipv6 ospf 8 area 10
+interface fasstethernet 0/1
+ipv6 ospf 8 area 10
+
+end
+
+
+-------------------------
+ROUTER R9 (RIGHT EDGE)
+-------------------------
+
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+interface loopback 9
+ip address 9.9.9.9 255.255.255.255
+exit
+
+ipv6 router ospf 9
+interface fastethernet 0/0
+ipv6 ospf 9 area 10
+interface fastethernet 0/1
+ipv6 ospf 9 area 10
+
+end
+
+
+============================================================
+VERIFICATION COMMANDS
+============================================================
+
+show ipv6 interface brief
+
+show ipv6 route
+
+show ipv6 ospf neighbor
+
+show ipv6 protocols
+
+show running-config
+
+============================================================
+END OF CONFIGURATION
+============================================================
