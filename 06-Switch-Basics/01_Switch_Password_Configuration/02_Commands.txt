@@ -1,0 +1,59 @@
+
+========================================
+CISCO SWITCH PASSWORD CONFIGURATION
+========================================
+
+1. ENTER PRIVILEGED EXEC MODE
+
+enable
+
+2. ENTER GLOBAL CONFIGURATION MODE
+
+configure terminal
+
+3. CONFIGURE SWITCH HOSTNAME
+
+hostname Cisco-Switch
+
+4. CREATE LOCAL USER ACCOUNT
+
+username pranav secret <NEW_PASSWORD>
+
+5. CONFIGURE ENABLE SECRET
+
+enable secret <NEW_ENABLE_SECRET>
+
+6. CONFIGURE CONSOLE AUTHENTICATION
+
+line console 0
+login local
+exit
+
+7. CONFIGURE VTY AUTHENTICATION
+
+line vty 0 4
+login local
+exit
+
+8. ENABLE PASSWORD ENCRYPTION
+
+service password-encryption
+
+9. EXIT CONFIGURATION MODE
+
+end
+
+10. SAVE CONFIGURATION
+
+copy running-config startup-config
+
+11. VERIFICATION COMMANDS
+
+show running-config
+show running-config | include password
+show running-config | include secret
+show running-config | section line
+
+========================================
+END OF CONFIGURATION
+========================================
