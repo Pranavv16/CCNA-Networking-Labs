@@ -1,0 +1,73 @@
+==================================================
+CISCO SWITCH CONFIGURATION AND TFTP BACKUP
+==================================================
+
+DEVICE: Cisco Catalyst 2960 Switch
+
+1. ACCESS PORT CONFIGURATION
+--------------------------------------------------
+
+enable
+configure terminal
+interface fastEthernet 0/1
+switchport mode access
+exit
+
+
+2. VLAN 1 MANAGEMENT CONFIGURATION
+--------------------------------------------------
+
+interface vlan 1
+ip address 192.168.10.1 255.255.255.248
+no shutdown
+exit
+
+
+3. SAVE SWITCH CONFIGURATION
+--------------------------------------------------
+
+end
+copy running-config startup-config
+
+
+3. TFTP SERVER IP ADDRESSING
+--------------------------------------------------
+
+Configured 192.168.10.5 255.255.255.248 IP address on server.
+
+
+4. BACKUP STARTUP CONFIGURATION TO TFTP SERVER
+--------------------------------------------------
+
+copy startup-config tftp:
+
+Remote Host IP: 192.168.10.5
+Destination Filename: Cisco-Switch-config
+
+
+5. VERIFY FLASH MEMORY
+--------------------------------------------------
+
+show flash
+
+IOS IMAGE:
+2960-lanbasek9-mz.150-2.SE4.bin
+
+
+6. BACKUP CISCO IOS IMAGE TO TFTP SERVER
+--------------------------------------------------
+
+copy flash: tftp:
+
+Source Filename:
+2960-lanbasek9-mz.150-2.SE4.bin
+
+Remote Host IP:
+192.168.10.5
+
+Destination Filename:
+2960-lanbasek9-mz.150-2.SE4.bin
+
+==================================================
+END OF CONFIGURATION
+==================================================
