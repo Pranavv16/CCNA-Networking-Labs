@@ -1,0 +1,38 @@
+enable
+configure terminal
+
+! Enable physical interface
+interface fastEthernet 0/0
+no shutdown
+exit
+
+! VLAN 10 subinterface
+interface fastEthernet 0/0.1
+encapsulation dot1q 10
+ip address 192.168.10.1 255.255.255.192
+exit
+
+! VLAN 20 subinterface
+interface fastEthernet 0/0.2
+encapsulation dot1q 20
+ip address 192.168.10.65 255.255.255.192
+exit
+
+! VLAN 30 subinterface
+interface fastEthernet 0/0.3
+encapsulation dot1q 30
+ip address 192.168.10.129 255.255.255.192
+exit
+
+! VLAN 40 subinterface
+interface fastEthernet 0/0.4
+encapsulation dot1q 40
+ip address 192.168.10.193 255.255.255.192
+exit
+
+! Verify router interfaces
+end
+show ip interface brief
+
+! Save configuration
+copy running-config startup-config
