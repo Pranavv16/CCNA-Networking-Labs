@@ -1,0 +1,58 @@
+enable
+configure terminal
+
+! Configure trunk port
+interface gigabitEthernet 0/1
+switchport mode trunk
+exit
+
+! Create VLAN 10
+vlan 10
+name Account
+exit
+
+! Create VLAN 20
+vlan 20
+name Sales
+exit
+
+! Create VLAN 30
+vlan 30
+name Marketing
+exit
+
+! Create VLAN 40
+vlan 40
+name Production
+exit
+
+! Assign VLAN 10 access ports
+interface range fastEthernet 0/1-3
+switchport mode access
+switchport access vlan 10
+exit
+
+! Assign VLAN 20 access ports
+interface range fastEthernet 0/4-6
+switchport mode access
+switchport access vlan 20
+exit
+
+! Assign VLAN 30 access ports
+interface range fastEthernet 0/7-9
+switchport mode access
+switchport access vlan 30
+exit
+
+! Assign VLAN 40 access ports
+interface range fastEthernet 0/10-12
+switchport mode access
+switchport access vlan 40
+exit
+
+! Verify VLAN configuration
+do show vlan brief
+
+! Save configuration
+end
+copy running-config startup-config
